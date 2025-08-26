@@ -1,9 +1,14 @@
 # ns3-fl-masters
 
+This framework was adapted from the following creators:
+- [Emily Ekaireb][https://github.com/eekaireb/ns3-fl] (The initial work)
+- [halsimov][https://github.com/halsimov/ns-fl] (adaptation)
+The framework is mostly a personal implementtion for demonstrative purposes and quickly deployable on DTU's HPC servers, for simultaion.
 
 Todo
 - Write and clean project folder
 - Ref originl and adapted work
+- Add `bsub` files and guide for submitting to DTU's HPC node.
 
 
 # How to run:
