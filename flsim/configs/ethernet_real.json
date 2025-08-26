@@ -1,0 +1,63 @@
+{
+    "clients": {
+        "total": 5,
+        "per_round": 5,
+        "label_distribution": "uniform",
+        "do_test": false,
+        "test_partition": 0.2,
+        "selection": "random"
+    },
+    "data": {
+        "loading": "dynamic",
+        "partition": {
+            "size": 600,
+            "range": [
+                50,
+                200
+            ]
+        },
+        "IID": true,
+        "bias": {
+		"primary": 0.8,
+		"secondary": false
+	}
+    },
+    "federated_learning": {
+        "rounds": 20,
+        "target_accuracy": 1,
+        "task": "train",
+        "epochs": 5,
+        "batch_size": 100
+    },
+    "model": {
+        "name": "MNIST",
+        "size": 1600
+    },
+    "paths": {
+        "data": "./data",
+        "model": "./models",
+        "reports": "reports.pkl",
+        "plot": "./plots"
+    },
+    "server": "sync",
+    "async": {
+        "alpha": 0.9,
+        "staleness_func": "polynomial"
+    },
+    "link_speed": {
+        "min": 5000,
+        "max": 5000,
+        "std": 0
+    },
+    "network": {
+        "type": "ethernet",
+        "wifi": {
+            "tx_gain": 20,
+            "max_packet_size": 1024
+        },
+        "ethernet": {
+            "max_packet_size": 1024
+        }
+    },
+    "plot_interval": 1
+}

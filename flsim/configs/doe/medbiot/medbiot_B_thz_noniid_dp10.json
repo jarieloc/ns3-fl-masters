@@ -1,0 +1,61 @@
+{
+  "model": {
+    "name": "MedBIoT",
+    "size": 1600
+  },
+  "clients": {
+    "total": 10,
+    "per_round": 2,
+    "do_test": true,
+    "test_partition": 0.25,
+    "selection": "short_latency_high_loss_first",
+    "drop_prob": 0.0
+  },
+  "data": {
+    "dataset": "medbiot",
+    "IID": false,
+    "partition": {
+      "size": 200,
+      "range": [
+        50,
+        200
+      ]
+    },
+    "bias": {
+      "primary": 0.8,
+      "secondary": false
+    }
+  },
+  "server": "async",
+  "federated_learning": {
+    "rounds": 50,
+    "target_accuracy": 0.9999,
+    "epochs": 1,
+    "batch_size": 128,
+    "dp": {
+      "enable": true,
+      "noise_multiplier": 1.0,
+      "max_grad_norm": 1.0,
+      "delta": 1e-05
+    }
+  },
+  "network": {
+    "type": "thz",
+    "controller": "inline",
+    "ns3_root": "../ns3-fl-network",
+    "thz": {
+      "carrier_ghz": 287.28,
+      "pkt_size": 600,
+      "sim_time": 0.5,
+      "timeout_sec": 0,
+      "interval_us": 50,
+      "way": 3,
+      "radius": 0.5,
+      "beamwidth": 120,
+      "gain": 30,
+      "ap_angle": 0,
+      "sta_angle": 180,
+      "useWhiteList": 0
+    }
+  }
+}

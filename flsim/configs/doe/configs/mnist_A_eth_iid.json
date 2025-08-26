@@ -1,0 +1,58 @@
+{
+  "model": {
+    "name": "MNIST",
+    "size": 1600
+  },
+  "clients": {
+    "total": 10,
+    "per_round": 2,
+    "do_test": true,
+    "test_partition": 0.25,
+    "selection": "short_latency_high_loss_first",
+    "drop_prob": 0.0
+  },
+  "data": {
+    "dataset": "mnist",
+    "IID": true,
+    "partition": {
+      "size": 200,
+      "range": [
+        50,
+        200
+      ]
+    },
+    "bias": {
+      "primary": 0.8,
+      "secondary": false
+    }
+  },
+  "server": "async",
+  "federated_learning": {
+    "rounds": 20,
+    "target_accuracy": 0.9999,
+    "epochs": 1,
+    "batch_size": 128,
+    "dp": {
+      "enable": false,
+      "noise_multiplier": 0.6,
+      "max_grad_norm": 1.0,
+      "delta": 1e-05
+    }
+  },
+  "network": {
+    "type": "ethernet",
+    "controller": "socket",
+    "ns3_root": "../ns3-fl-network",
+    "socket": {
+      "host": "127.0.0.1",
+      "port": 8080,
+      "launch": true
+    },
+    "ethernet": {
+      "max_packet_size": 1400,
+      "tx_gain": 0.0,
+      "data_rate": "100Mbps",
+      "sim_time": 2.0
+    }
+  }
+}

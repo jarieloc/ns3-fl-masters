@@ -1,0 +1,4 @@
+[submodule "flsim-bridge"]
+	path = contrib
+	url = https://github.com/halsimov/ns3-flsim-bridge.git
+	branch = master
